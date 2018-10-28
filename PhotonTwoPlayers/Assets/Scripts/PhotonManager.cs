@@ -1,21 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class PhotonManager : Photon.MonoBehaviour {
+public class PhotonManager : Photon.MonoBehaviour
+{
+
+	private string _userName, _userId;
+	private InputField _inputFieldUserId;
 
 	// Use this for initialization
-	void Start () {
-		
+	private void Start () {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	private void Update () {
 		
 	}
 	
 	//################################################################################
-
 	public void ConnectPhoton()
 	{
 		PhotonNetwork.ConnectUsingSettings("v1.0");
@@ -34,10 +37,20 @@ public class PhotonManager : Photon.MonoBehaviour {
 		                   "ルーム一覧を表示\n" + PhotonNetwork.GetRoomList() + "\n\n");
 	}
 	
+	//########################################
 	// Check UserId(Name)
+	// get userId, userName
+	private void GetUserInfo()
+	{
+        _inputFieldUserId = GetComponent<InputField>();
+		_userId = _inputFieldUserId.text;
+		Debug.Log(_userId);
+	}
 
 	// ルームの作成
 	public void CreateRoom(){
+		GetUserInfo();
+		
 		// ref: http://sleepnel.hatenablog.com/entry/2016/05/29/120200
 		var userName = "userName1";
 		var userId   = "userId1";
