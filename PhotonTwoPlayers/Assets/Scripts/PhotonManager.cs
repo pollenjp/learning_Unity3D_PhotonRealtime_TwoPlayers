@@ -7,10 +7,12 @@ public class PhotonManager : Photon.MonoBehaviour
 {
 
 	private string _userName, _userId;
-	private InputField _inputFieldUserId;
+	public InputField InputFieldUserId;
+	public GameObject Menu1, Menu2;
 
 	// Use this for initialization
 	private void Start () {
+	
 	}
 	
 	// Update is called once per frame
@@ -18,19 +20,27 @@ public class PhotonManager : Photon.MonoBehaviour
 		
 	}
 	
-	//################################################################################
-	public void ConnectPhoton()
+	//####################################################################################################
+	// Connect Photon server
+	public void ConnectPhotonServer()
 	{
 		PhotonNetwork.ConnectUsingSettings("v1.0");
 	}
-	
+	// Join lobby (set "Auto-Join Lobby" at "PhotonServerSettings")
 	public void OnJoinedLobby ()
 	{
 		Debug.Log ("PhotonManager OnJoinedLobby");
-		ShowRoomLists();
+		ChangeCanvas(canvasGameObject1: Menu1, canvasGameObject2: Menu2);
+	}
+	//########################################
+	// Connect server Menu --> Join Room Menu
+	public void ChangeCanvas(GameObject canvasGameObject1, GameObject canvasGameObject2)
+	{
+		canvasGameObject1.GetComponent<Canvas>().enabled = false;
+		canvasGameObject2.GetComponent<Canvas>().enabled = true;
 	}
 	
-	//########################################
+	//####################################################################################################
 	public void ShowRoomLists()
 	{
 		Debug.Log(message: "===PhotonNetwork.GetRoomList===\n" +
@@ -42,8 +52,7 @@ public class PhotonManager : Photon.MonoBehaviour
 	// get userId, userName
 	private void GetUserInfo()
 	{
-        _inputFieldUserId = GetComponent<InputField>();
-		_userId = _inputFieldUserId.text;
+		_userId = InputFieldUserId.text;
 		Debug.Log(_userId);
 	}
 
