@@ -48,7 +48,7 @@ public class PhotonManager : Photon.MonoBehaviour
 	}
 
 	// ルームの作成
-	public void CreateRoom(){
+	public void CreateRoomButton(){
 		GetUserInfo();
 		
 		// ref: http://sleepnel.hatenablog.com/entry/2016/05/29/120200
