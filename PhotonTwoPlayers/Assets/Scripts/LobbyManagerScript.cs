@@ -63,40 +63,27 @@ public class LobbyManagerScript : Photon.MonoBehaviour
     }
     #endregion
 
-    #region Photon.PunBehaviour CallBacks
-
-    //GetRoomListは一定時間ごとに更新され、その更新のタイミングで実行する処理
-    public override void OnReceivedRoomListUpdate()
-    {            
-        DestroyChildObject(RoomParent.transform);   //RoomElementを削除
-        GetRooms();     //RoomElementを再生成
-    }
-    
-    //ルーム作成失敗した場合
-    public override void OnPhotonCreateRoomFailed(object[] codeAndMsg)
-    {
-        //テキストを表示
-        InfoText.text = "ルームの作成に失敗しました";
-    }
-
-    //ルームの入室に失敗した場合
-    public override void OnPhotonJoinRoomFailed(object[] codeAndMsg)
-    {
-        //テキストを表示
-        InfoText.text = "ルームの入室に失敗しました";
-    }
-
-    //ルームに入室時の処理
-    public override void OnJoinedRoom()
-    {
-        //プレイヤーローカル変数初期化
-        LocalVariables.VariableReset();
-    }
-    //ルーム作成時の処理(作成者しか実行されない)
-    public override void OnCreatedRoom()
-    {
-        //battleシーンへ遷移
-        PhotonNetwork.LoadLevel("battle");
-    }
-    #endregion
+//    #region Photon.PunBehaviour CallBacks
+//
+//    //GetRoomListは一定時間ごとに更新され、その更新のタイミングで実行する処理
+//    public override void OnReceivedRoomListUpdate()
+//    {            
+//        DestroyChildObject(RoomParent.transform);   //RoomElementを削除
+//        GetRooms();     //RoomElementを再生成
+//    }
+//    
+//    //ルーム作成失敗した場合
+//    public override void OnPhotonCreateRoomFailed(object[] codeAndMsg)
+//    {
+//        //テキストを表示
+//        InfoText.text = "ルームの作成に失敗しました";
+//    }
+//
+//    //ルームの入室に失敗した場合
+//    public override void OnPhotonJoinRoomFailed(object[] codeAndMsg)
+//    {
+//        //テキストを表示
+//        InfoText.text = "ルームの入室に失敗しました";
+//    }
+//    #endregion
 }
