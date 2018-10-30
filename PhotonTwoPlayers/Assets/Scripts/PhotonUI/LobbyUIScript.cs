@@ -66,8 +66,12 @@ namespace PhotonUI
           "RoomCreator",
         };
         //部屋作成
-        //PhotonNetwork.CreateRoom(roomName: RoomNameText.text, roomOptions: roomOptions, typedLobby: null);
-        PhotonNetwork.JoinOrCreateRoom(roomName: RoomNameText.text, roomOptions: roomOptions, typedLobby: null);
+        // - PhotonNetwork.CreateRoom
+        //     When successful, this calls the callbacks OnCreatedRoom and OnJoinedRoom
+        //     (the latter, cause you join as first player).  <-- Creator have to join the room.
+        PhotonNetwork.CreateRoom(roomName: RoomNameText.text, roomOptions: roomOptions, typedLobby: null);
+        //PhotonNetwork.JoinOrCreateRoom(roomName: RoomNameText.text, roomOptions: roomOptions, typedLobby: null);
+
         // パネル切り替え
         CreateRoomPanel.SetActive(value: false);
         RoomInfoPanel.SetActive(value: true);

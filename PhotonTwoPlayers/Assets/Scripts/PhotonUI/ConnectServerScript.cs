@@ -41,7 +41,8 @@ namespace PhotonUI
         {
             Debug.Log("=== OnJoinedLobby ===\n");
             SetPlayerName(value: PlayerIdText.text);
-            Debug.Log(message: PlayerIdText.text);
+            Debug.Log(message: "== PlayerIdText.text ==\n" + PlayerIdText.text);
+            Debug.Log(message: "== PhotonNetwork.isMasterClient ==\n" + PhotonNetwork.isMasterClient);
             ChangeCanvas(canvasGameObject1: Menu1, canvasGameObject2: Menu2);
         }
         #endregion

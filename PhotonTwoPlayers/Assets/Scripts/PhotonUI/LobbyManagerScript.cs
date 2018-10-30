@@ -92,6 +92,7 @@ namespace PhotonUI
         private void OnJoinedRoom()
         {
             Debug.Log(message: "=== OnJoinedRoom ===\n");
+            Debug.Log(message: "== PhotonNetwork.isMasterClient ==\n" + PhotonNetwork.isMasterClient);
         }
         //########################################
         //ルーム作成失敗した場合
