@@ -69,10 +69,11 @@ public class CameraScript : MonoBehaviour {
 			_lookAt = ObjTarget.position + ObjOffset;
  
 			//カメラ旋回処理
-			Vector3 dir = new Vector3(0, CameraPosY, - _charaCameraDistance);
+			Vector3 dir = new Vector3(0, CameraPosY - _lookAt.y, - _charaCameraDistance);
 			Quaternion rotation = Quaternion.Euler(- _currentY, _currentX, 0);
  
-			transform.position = _lookAt + rotation * dir; //カメラの位置を変更
+			//transform.position = _lookAt + rotation * dir; //カメラの位置を変更
+			transform.position = _lookAt - ObjTarget.forward.normalized * _charaCameraDistance + new Vector3(0, CameraPosY, 0); //カメラの位置を変更
 			transform.LookAt(_lookAt);   //カメラをLookAtの方向に向けさせる
 		}
  

@@ -6,6 +6,15 @@ using UnityEngine;
 public class CharacterControlScript : MonoBehaviour
 {
 
+	//################################################################################
+	// Photon
+	public PhotonView MyPhotonView;
+	public PhotonTransformView MyPhotonTransformView;
+
+	private Camera _mainCamera;
+	
+	//########################################
+	// Character
 	// 移動
 	public Animator CharAnimator;  // モーション
 	public CharacterController CharController;  // キャラの移動管理
@@ -21,15 +30,28 @@ public class CharacterControlScript : MonoBehaviour
 	//####################################################################################################
 	// Use this for initialization
 	private void Start () {
-		
+		// 自分のキャラクターならば
+		if (MyPhotonView.isMine)
+		{
+			_mainCamera = Camera.main;
+			_mainCamera.GetComponent<CameraScript>().ObjTarget = this.gameObject.transform;
+		}
 	}
 	
 	// Update is called once per frame
 	private void Update () {
+		if (!MyPhotonView.isMine)
+		{
+			return;
+		}
+		
 		MoveControl();
 		RotationControl();
 		CharController.Move(motion: _charMoveVector * Time.deltaTime);
 
+		// スムーズな同期のためにPhotonTransformViewに速度値を渡す
+		Vector3 velocity = CharController.velocity;
+		MyPhotonTransformView.SetSynchronizedValues(speed: velocity, turnSpeed: 0);
 	}
 	
 	//####################################################################################################
