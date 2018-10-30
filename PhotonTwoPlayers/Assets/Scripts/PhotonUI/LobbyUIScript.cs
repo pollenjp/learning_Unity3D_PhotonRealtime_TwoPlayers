@@ -67,6 +67,7 @@ namespace PhotonUI
         };
         //部屋作成
         // - PhotonNetwork.CreateRoom
+        //     https://doc-api.photonengine.com/en/pun/current/class_photon_network.html#a08435c2d064fd6a85e51e1520e5a63d8
         //     When successful, this calls the callbacks OnCreatedRoom and OnJoinedRoom
         //     (the latter, cause you join as first player).  <-- Creator have to join the room.
         PhotonNetwork.CreateRoom(roomName: RoomNameText.text, roomOptions: roomOptions, typedLobby: null);
