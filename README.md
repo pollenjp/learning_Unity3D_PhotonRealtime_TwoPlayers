@@ -11,7 +11,7 @@
   - [bool PhotonNetwork.autoJoinLobby](http://doc-api.photonengine.com/en/PUN/current/class_photon_network.html#ad534d4da7222bd8a6d8423cbd238d7f4)
 - [Photon Server SDK | Photon Engine](https://doc.photonengine.com/en-us/server/v3/sdks-and-api/sdk-photon-server)
 - [初期設定 | Photon Engine](https://doc.photonengine.com/ja-jp/pun/current/getting-started/initial-setup#connect_manually)
-  - PhotonNetwork.ConnectToMaster
+  - 手動で接続
 - [Unityオンラインゲーム作成【Chapter12】Lobbyシーンの作成 - Uniblo-ゆにブロ-](http://uniblo.biz/unity/mmogame/lobbyscene)
 - [【Unity】僕もPhotonを使いたい Unity-技術メモ-PUN カテゴリーの記事一覧 - うら干物書き](https://www.urablog.xyz/archive/category/Unity-%E6%8A%80%E8%A1%93%E3%83%A1%E3%83%A2-PUN)
 - [Unityで作る、画面遷移のあるメニュー - ころもソフトBlog](http://chicchi0531.hatenablog.com/entry/2017/10/10/025409)
