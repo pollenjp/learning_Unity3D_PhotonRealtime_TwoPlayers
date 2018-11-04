@@ -9,6 +9,8 @@
   - [PhotonPlayer [] PhotonNetwork.playerList](http://doc-api.photonengine.com/en/PUN/current/class_photon_network.html#a2dc5e6cba79f899d9952f804db35b2f3)
   - [PhotonPlayer [] PhotonNetwork.otherPlayers](http://doc-api.photonengine.com/en/PUN/current/class_photon_network.html#a894df24398c8cfe2d06e22ddc39576fa)
   - [bool PhotonNetwork.autoJoinLobby](http://doc-api.photonengine.com/en/PUN/current/class_photon_network.html#ad534d4da7222bd8a6d8423cbd238d7f4)
+  - PhotonView
+    - [void PhotonView.RPC()](https://doc-api.photonengine.com/en/pun/current/class_photon_view.html#ad288db13a15d581e0f7c5886f4036720)
 - [Photon Server SDK | Photon Engine](https://doc.photonengine.com/en-us/server/v3/sdks-and-api/sdk-photon-server)
 - [初期設定 | Photon Engine](https://doc.photonengine.com/ja-jp/pun/current/getting-started/initial-setup#connect_manually)
   - 手動で接続
