@@ -13,3 +13,5 @@
 - [Unity Photon(PUN+) の使い方 オブジェクト位置同期編（4/5） - 週刊SleepNel新聞](http://sleepnel.hatenablog.com/entry/2016/06/09/120200)
 - [初期設定 | Photon Engine](https://doc.photonengine.com/ja-jp/pun/current/getting-started/initial-setup#connect_manually)
 - [クイックスタート | Photon Engine](https://doc.photonengine.com/ja-jp/realtime/current/getting-started/quick-start)
+- [PUNを使ってネットワーク同期を行う -Vol.1- – Photon](https://support.photonengine.jp/hc/ja/articles/218960867-PUN%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E5%90%8C%E6%9C%9F%E3%82%92%E8%A1%8C%E3%81%86-Vol-1-)
+- [テクニカル – Photon](https://support.photonengine.jp/hc/ja/categories/201897318-%E3%83%86%E3%82%AF%E3%83%8B%E3%82%AB%E3%83%AB)
