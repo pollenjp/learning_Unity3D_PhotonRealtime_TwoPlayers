@@ -6,6 +6,8 @@
 
 ## Reference
 - [Photon Unity Networking: Main Page](http://doc-api.photonengine.com/en/PUN/current/)
+  - [PhotonPlayer [] PhotonNetwork.playerList](http://doc-api.photonengine.com/en/PUN/current/class_photon_network.html#a2dc5e6cba79f899d9952f804db35b2f3)
+  - [PhotonPlayer [] PhotonNetwork.otherPlayers](http://doc-api.photonengine.com/en/PUN/current/class_photon_network.html#a894df24398c8cfe2d06e22ddc39576fa)
 - [Photon Server SDK | Photon Engine](https://doc.photonengine.com/en-us/server/v3/sdks-and-api/sdk-photon-server)
 - [Unityオンラインゲーム作成【Chapter12】Lobbyシーンの作成 - Uniblo-ゆにブロ-](http://uniblo.biz/unity/mmogame/lobbyscene)
 - [Unityで作る、画面遷移のあるメニュー - ころもソフトBlog](http://chicchi0531.hatenablog.com/entry/2017/10/10/025409)
