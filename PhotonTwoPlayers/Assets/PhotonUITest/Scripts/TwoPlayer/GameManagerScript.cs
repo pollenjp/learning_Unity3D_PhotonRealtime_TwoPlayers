@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManagerScript : MonoBehaviour
 {
+  public string PhotonLobbySceneName;
   public GameObject PlayerPrefab;
 
   // Use this for initialization
@@ -12,10 +13,22 @@ public class GameManagerScript : MonoBehaviour
   {
     if (!PhotonNetwork.connected) // Photonに接続されていなければ
     {
-      SceneManager.LoadScene("PhotonLobbyScene");
+      if (!string.IsNullOrEmpty(value: PhotonLobbySceneName))
+      {
+        SceneManager.LoadScene(PhotonLobbySceneName);
+      }
       return;
     }
+    
+    //########################################
+    // Debug
+    foreach (var photonPlayer in PhotonNetwork.playerList)
+    {
+      Debug.Log(message: "=== PhotonNetwork.playerList ===\n" + photonPlayer.NickName + "\n\n");
+    }
 
+    
+    
     GameObject player = PhotonNetwork.Instantiate(
       prefabName: this.PlayerPrefab.name,
       position: new Vector3(0f, 0f, 0f),
