@@ -9,6 +9,12 @@ namespace PhotonUI
   public class ConnectServerScript : MonoBehaviour
   {
     public GameObject Menu1, Menu2;
+    
+    public Text PhotonMasterServerAddress;
+    public Text PhotonMasterServerPort;
+    public Text PhotonAppId;
+    public Text GameVersion;
+    
     public Text PlayerIdText;
     static string playerNamePrefKey = "PlayerName";
 
@@ -25,6 +31,10 @@ namespace PhotonUI
       Menu2.SetActive(value: true);
       Menu1.GetComponent<Canvas>().enabled = true;
       Menu2.GetComponent<Canvas>().enabled = false;
+      
+      //
+      PhotonMasterServerPort.text = "5055";
+      GameVersion.text = "1.0";
     }
 
     //########################################
@@ -38,14 +48,24 @@ namespace PhotonUI
     //####################################################################################################
     public void OnClick_ConnectServerButton()
     {
-      PhotonNetwork.ConnectUsingSettings(gameVersion: "v1.0");
+      //PhotonNetwork.ConnectUsingSettings(gameVersion: "v1.0");
+      PhotonNetwork.ConnectToMaster(
+        masterServerAddress: PhotonMasterServerAddress.text,
+        port: int.Parse(PhotonMasterServerPort.text),
+        appID: PhotonAppId.text,
+        gameVersion: GameVersion.text);
     }
 
     //####################################################################################################
 
     #region Photon Callbacks
 
-    public void OnJoinedLobby()
+    private void OnConnectedToMaster()
+    {
+      PhotonNetwork.JoinLobby();
+    }
+    
+    private void OnJoinedLobby()
     {
       Debug.Log("=== OnJoinedLobby ===\n");
       SetPlayerName(value: PlayerIdText.text);
