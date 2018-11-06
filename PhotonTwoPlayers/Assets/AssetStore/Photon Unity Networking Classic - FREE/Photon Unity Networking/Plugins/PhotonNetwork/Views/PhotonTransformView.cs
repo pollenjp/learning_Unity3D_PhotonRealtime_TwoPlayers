@@ -70,7 +70,13 @@ public class PhotonTransformView : MonoBehaviour, IPunObservable
             return;
         }
 
-        this.UpdatePosition();
+	      //########################################
+	      if (this.m_PhotonView.isMine == false)
+	      {
+		        transform.localPosition = new Vector3(2, 0, 0);
+	      }
+
+        //this.UpdatePosition();
         this.UpdateRotation();
         this.UpdateScale();
     }
