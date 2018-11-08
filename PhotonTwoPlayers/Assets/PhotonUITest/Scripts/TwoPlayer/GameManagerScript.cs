@@ -27,8 +27,6 @@ public class GameManagerScript : MonoBehaviour
       Debug.Log(message: "=== PhotonNetwork.playerList ===\n" + photonPlayer.NickName + "\n\n");
     }
 
-    
-    
     GameObject player = PhotonNetwork.Instantiate(
       prefabName: this.PlayerPrefab.name,
       position: new Vector3(0f, 0f, 0f),

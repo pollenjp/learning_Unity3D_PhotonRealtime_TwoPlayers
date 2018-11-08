@@ -560,7 +560,7 @@ GameObject:
   - component: {fileID: 378235844}
   m_Layer: 5
   m_Name: Text
-  m_TagString: Untagged
+  m_TagString: PhotonPlayerName
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -637,7 +637,7 @@ GameObject:
   - component: {fileID: 397435020}
   m_Layer: 5
   m_Name: UserIdInputField
-  m_TagString: Untagged
+  m_TagString: ConnectServerInputField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -781,7 +781,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68490a1cfc116c341b61d7eeb9c3cbcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UserIdInputField: {fileID: 397435017}
+  InputField: {fileID: 397435017}
+  InputKeyword: UserId
 --- !u!1 &408747745
 GameObject:
   m_ObjectHideFlags: 0
@@ -1466,7 +1467,7 @@ GameObject:
   - component: {fileID: 653053663}
   m_Layer: 5
   m_Name: PhotonMasterServerAddressInputField
-  m_TagString: Untagged
+  m_TagString: ConnectServerInputField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1502,7 +1503,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68490a1cfc116c341b61d7eeb9c3cbcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UserIdInputField: {fileID: 653053664}
+  InputField: {fileID: 653053664}
+  InputKeyword: PhotonMasterServerAddress
 --- !u!114 &653053664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1802,7 +1804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ea67f01432f0427ab0d2b4071e47296, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JoinSceneName: TwoPlayerScene
+  JoinSceneName: WaitingRoomScene
   RoomParent: {fileID: 1834131326}
   RoomElementPrefab: {fileID: 1301283531677500, guid: af8f5377ef0e59b4c9ca0229483cdbf8,
     type: 2}
@@ -2379,7 +2381,7 @@ GameObject:
   - component: {fileID: 1249969013}
   m_Layer: 5
   m_Name: GameVersionInputField
-  m_TagString: Untagged
+  m_TagString: ConnectServerInputField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2415,7 +2417,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68490a1cfc116c341b61d7eeb9c3cbcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UserIdInputField: {fileID: 1249969014}
+  InputField: {fileID: 1249969014}
+  InputKeyword: GameVersion
 --- !u!114 &1249969014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2994,7 +2997,7 @@ GameObject:
   - component: {fileID: 1325733672}
   m_Layer: 5
   m_Name: PhotonMasterServerPortInputField
-  m_TagString: Untagged
+  m_TagString: ConnectServerInputField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3030,7 +3033,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68490a1cfc116c341b61d7eeb9c3cbcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UserIdInputField: {fileID: 1325733673}
+  InputField: {fileID: 1325733673}
+  InputKeyword: PhotonMasterServerPort
 --- !u!114 &1325733673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4088,7 +4092,7 @@ GameObject:
   - component: {fileID: 1850531562}
   m_Layer: 5
   m_Name: PhotonAppIdInputField
-  m_TagString: Untagged
+  m_TagString: ConnectServerInputField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4124,7 +4128,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68490a1cfc116c341b61d7eeb9c3cbcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UserIdInputField: {fileID: 1850531563}
+  InputField: {fileID: 1850531563}
+  InputKeyword: PhotonAppId
 --- !u!114 &1850531563
 MonoBehaviour:
   m_ObjectHideFlags: 0

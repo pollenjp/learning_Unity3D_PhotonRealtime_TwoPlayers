@@ -41,6 +41,7 @@ namespace PhotonUI
     // Update is called once per frame
     private void Update()
     {
+      
     }
 
     #endregion
@@ -68,8 +69,24 @@ namespace PhotonUI
     private void OnJoinedLobby()
     {
       Debug.Log("=== OnJoinedLobby ===\n");
-      SetPlayerName(value: PlayerIdText.text);
-      Debug.Log(message: "== PlayerIdText.text ==\n" + PlayerIdText.text);
+      GameObject userIdInputField = UnityEngine.GameObject.Find("UserIdInputField");
+      GameObject photonPlayerName = UnityEngine.GameObject.FindWithTag(tag: "PhotonPlayerName");
+      Debug.Log(message: "== photonPlayerNameArr ==\n" + photonPlayerName);
+      Text playerIdText = photonPlayerName.GetComponent<Text>();
+      Debug.Log(message: "== PlayerIdText.text ==\n" + playerIdText.text);
+      SetPlayerName(value: playerIdText.text);
+      
+      GameObject[] connectServerInputFieldTag = UnityEngine.GameObject.FindGameObjectsWithTag(tag: "ConnectServerInputField");
+      foreach (var inputFieldGameObject in connectServerInputFieldTag)
+      {
+        var inputKeyword = inputFieldGameObject.GetComponent<InputFieldScript>().InputKeyword;
+        var inputValue   = inputFieldGameObject.transform.Find(n: "Text").gameObject.GetComponent<Text>().text;
+        Debug.Log(message: "== inputKeyword ==\n" + inputKeyword + "\n");
+        Debug.Log(message: "== inputValue.text ==\n" + playerIdText.text + "\n");
+        UnityEngine.PlayerPrefs.SetString(key: inputKeyword, value: inputValue);
+      }
+      
+      //PlayerPrefs.SetString(InputKeyword, value);
       Debug.Log(message: "== PhotonNetwork.isMasterClient ==\n" + PhotonNetwork.isMasterClient);
       ChangeCanvas(canvasGameObject1: Menu1, canvasGameObject2: Menu2);
     }
@@ -91,7 +108,6 @@ namespace PhotonUI
     {
       Debug.Log(message: "=== SetPlayerName ===\n" + value + "\n");
       PhotonNetwork.playerName = value + " "; //今回ゲームで利用するプレイヤーの名前を設定
-      PlayerPrefs.SetString(playerNamePrefKey, value); //今回の名前をセーブ
       Debug.Log(PhotonNetwork.player.NickName); //playerの名前の確認。（動作が確認できればこの行は消してもいい）
     }
 

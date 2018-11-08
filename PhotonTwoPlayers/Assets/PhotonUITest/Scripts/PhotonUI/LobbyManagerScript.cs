@@ -121,7 +121,7 @@ namespace PhotonUI
       Debug.Log(message:
         "=== OnJoinedRoom ===\n"
         + "== PhotonNetwork.isMasterClient == : " + PhotonNetwork.isMasterClient + "\n");
-      SceneManager.LoadScene(sceneName: JoinSceneName);
+      UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName: JoinSceneName);
     }
 
     //########################################
