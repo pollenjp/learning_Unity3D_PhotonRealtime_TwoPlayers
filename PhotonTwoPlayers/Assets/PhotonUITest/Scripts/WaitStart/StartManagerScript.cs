@@ -10,14 +10,7 @@ namespace WaitStart
     public string LoadSceneName;
     public GameObject SceneLoaderObject;
 
-    private PhotonView sceneLoader = null;
-
     #region MonoBehaviour Callbacks
-
-    void Awake()
-    {
-      sceneLoader = GetComponent<PhotonView>();
-    }
 
     // Use this for initialization
     private void Start()
@@ -29,11 +22,11 @@ namespace WaitStart
         {
           UnityEngine.SceneManagement.SceneManager.LoadScene(PhotonLobbySceneName);
         }
-
         return;
       }
 
       //########################################
+      Debug.Log(message: "=== PhotonNetwork.isMasterClient ===\n" + PhotonNetwork.isMasterClient + "\n");
       if (PhotonNetwork.isMasterClient)
       {
         // buttonを生成
@@ -48,30 +41,12 @@ namespace WaitStart
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
       
     }
 
     #endregion
-
-    #region OnClick Callbacks
-
-    public void OnClick_StartButton()
-    {
-      Debug.Log(message: "=== OnClick_StartButton ===\n");
-      sceneLoader.RPC(methodName: "LoadScene", target: PhotonTargets.All);
-    }
-
-    #endregion
-    
-    [PunRPC]
-    private void LoadScene()
-    {
-      // エフェクトを生成.
-      // 適当な時間が経過したら消すように設定.
-      UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName: LoadSceneName);
-    }
 
   }
 }

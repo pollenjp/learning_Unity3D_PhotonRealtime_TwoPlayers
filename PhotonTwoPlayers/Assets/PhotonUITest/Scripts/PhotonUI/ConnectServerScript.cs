@@ -10,14 +10,15 @@ namespace PhotonUI
   {
     public GameObject Menu1, Menu2;
     
-    public Text PhotonMasterServerAddress;
-    public Text PhotonMasterServerPort;
-    public Text PhotonAppId;
-    public Text GameVersion;
+    [SerializeField]
+    private Text PhotonMasterServerAddress;
+    [SerializeField]
+    private  Text PhotonMasterServerPort;
+    [SerializeField]
+    private  Text PhotonAppId;
+    [SerializeField]
+    private  Text GameVersion;
     
-    public Text PlayerIdText;
-    static string playerNamePrefKey = "PlayerName";
-
     //####################################################################################################
 
     #region MonoBehaviour callbacks
@@ -33,8 +34,10 @@ namespace PhotonUI
       Menu2.GetComponent<Canvas>().enabled = false;
       
       //
-      PhotonMasterServerPort.text = "5055";
-      GameVersion.text = "1.0";
+      PhotonMasterServerAddress = UnityEngine.GameObject.Find(name: "PhotonMasterServerAddressInputField").transform.Find("Text").GetComponent<Text>();
+      PhotonMasterServerPort    = UnityEngine.GameObject.Find(name: "PhotonMasterServerPortInputField").transform.Find("Text").GetComponent<Text>();
+      PhotonAppId               = UnityEngine.GameObject.Find(name: "PhotonAppIdInputField").transform.Find("Text").GetComponent<Text>();
+      GameVersion               = UnityEngine.GameObject.Find(name: "GameVersionInputField").transform.Find("Text").GetComponent<Text>();
     }
 
     //########################################
@@ -55,6 +58,7 @@ namespace PhotonUI
         port: int.Parse(PhotonMasterServerPort.text),
         appID: PhotonAppId.text,
         gameVersion: GameVersion.text);
+      //ChangeCanvas(canvasGameObject1: Menu1, canvasGameObject2: Menu2);
     }
 
     //####################################################################################################
@@ -68,14 +72,28 @@ namespace PhotonUI
     
     private void OnJoinedLobby()
     {
+      ChangeCanvas(canvasGameObject1: Menu1, canvasGameObject2: Menu2);
+      
+      //########################################
+      //  入力情報の保存（次回入力省略）
+      //  - player name
       Debug.Log("=== OnJoinedLobby ===\n");
       GameObject userIdInputField = UnityEngine.GameObject.Find("UserIdInputField");
       GameObject photonPlayerName = UnityEngine.GameObject.FindWithTag(tag: "PhotonPlayerName");
       Debug.Log(message: "== photonPlayerNameArr ==\n" + photonPlayerName);
       Text playerIdText = photonPlayerName.GetComponent<Text>();
-      Debug.Log(message: "== PlayerIdText.text ==\n" + playerIdText.text);
-      SetPlayerName(value: playerIdText.text);
+      Debug.Log(message: "== playerIdText.text ==\n" + playerIdText.text);
+      //SetPlayerName(value: playerIdText.text);
+      Debug.Log(message: "=== SetPlayerName ===\n" + playerIdText.text + "\n");
+      PhotonNetwork.playerName = playerIdText.text + " "; //今回ゲームで利用するプレイヤーの名前を設定
+      Debug.Log(PhotonNetwork.player.NickName); //playerの名前の確認。（動作が確認できればこの行は消してもいい）
       
+      //########################################
+      //  入力情報の保存（次回入力省略）
+      //  - server ip
+      //  - server port
+      //  - appid
+      //  - game version
       GameObject[] connectServerInputFieldTag = UnityEngine.GameObject.FindGameObjectsWithTag(tag: "ConnectServerInputField");
       foreach (var inputFieldGameObject in connectServerInputFieldTag)
       {
@@ -85,10 +103,8 @@ namespace PhotonUI
         Debug.Log(message: "== inputValue.text ==\n" + playerIdText.text + "\n");
         UnityEngine.PlayerPrefs.SetString(key: inputKeyword, value: inputValue);
       }
-      
       //PlayerPrefs.SetString(InputKeyword, value);
       Debug.Log(message: "== PhotonNetwork.isMasterClient ==\n" + PhotonNetwork.isMasterClient);
-      ChangeCanvas(canvasGameObject1: Menu1, canvasGameObject2: Menu2);
     }
 
     #endregion

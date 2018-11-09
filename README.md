@@ -3,6 +3,8 @@
 ## Sample Movie
 
 - https://youtu.be/ClGmlI1RwKI
+- [[Sample] PhotonTwoPlayers 同時シーン遷移 - YouTube](https://youtu.be/QBKNmwo0FVE)
+
 
 ## Reference
 - [Photon Unity Networking: Main Page](http://doc-api.photonengine.com/en/PUN/current/)
